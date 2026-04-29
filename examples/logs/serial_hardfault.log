@@ -1,0 +1,6 @@
+[00:00.001] boot: board=dev-board-a fw=1.8.3
+[00:00.080] net: init ok
+[00:00.091] app: entering main loop
+[00:02.104] HardFault: pc=0x080041fe lr=0x08003321 sp=0x20001f80
+[00:02.105] fault: possible null pointer dereference
+[00:02.106] test: TEST_DONE status=FAIL case=network_smoke

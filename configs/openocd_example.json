@@ -1,0 +1,42 @@
+{
+  "project_name": "Real Board Firmware Test",
+  "artifacts_dir": "reports",
+  "git": {
+    "diff_base": "origin/main",
+    "diff_head": "HEAD"
+  },
+  "build": {
+    "command": "cmake --build build -j8",
+    "cwd": ".",
+    "timeout_sec": 180
+  },
+  "flash": {
+    "command": "openocd -f interface/stlink.cfg -f target/stm32f4x.cfg -c \"program build/firmware.elf verify reset exit\"",
+    "timeout_sec": 120,
+    "skip": false
+  },
+  "serial": {
+    "port": "/dev/ttyUSB0",
+    "baudrate": 115200,
+    "timeout_sec": 15,
+    "until_patterns": [
+      "TEST_DONE",
+      "ASSERT",
+      "HardFault",
+      "panic",
+      "watchdog"
+    ]
+  },
+  "history": {
+    "issues_path": "data/history_issues.jsonl"
+  },
+  "feishu": {
+    "enabled": true,
+    "webhook_url_env": "FEISHU_WEBHOOK_URL",
+    "secret_env": "FEISHU_WEBHOOK_SECRET"
+  },
+  "llm": {
+    "enabled": false,
+    "provider": "openai_compatible"
+  }
+}

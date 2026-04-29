@@ -1,0 +1,43 @@
+{
+  "project_name": "Embedded Firmware Test Agent Demo",
+  "artifacts_dir": "reports",
+  "git": {
+    "diff_base": "HEAD~1",
+    "diff_head": "HEAD",
+    "mock_changed_files": [
+      "src/drivers/imu.c",
+      "src/bsp/i2c_bus.c",
+      "include/board_config.h"
+    ],
+    "mock_diff": "diff --git a/src/drivers/imu.c b/src/drivers/imu.c\n+ int ret = i2c_read(IMU_ADDR, REG_WHOAMI, &id, 1);\n+ ASSERT(ret == 0);\n"
+  },
+  "build": {
+    "command": "make all",
+    "cwd": ".",
+    "timeout_sec": 120,
+    "mock_log": "examples/logs/build_success.log"
+  },
+  "flash": {
+    "command": "echo mock flash",
+    "timeout_sec": 60,
+    "skip": false
+  },
+  "serial": {
+    "port": null,
+    "baudrate": 115200,
+    "timeout_sec": 10,
+    "mock_log": "examples/logs/serial_i2c_timeout.log"
+  },
+  "history": {
+    "issues_path": "data/history_issues.jsonl"
+  },
+  "feishu": {
+    "enabled": true,
+    "webhook_url_env": "FEISHU_WEBHOOK_URL",
+    "secret_env": "FEISHU_WEBHOOK_SECRET"
+  },
+  "llm": {
+    "enabled": false,
+    "provider": "openai_compatible"
+  }
+}

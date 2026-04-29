@@ -1,0 +1,8 @@
+[ 10%] Building C object src/CMakeFiles/firmware.dir/main.c.o
+[ 32%] Building C object src/CMakeFiles/firmware.dir/drivers/imu.c.o
+[ 66%] Linking C executable firmware.elf
+Memory region         Used Size  Region Size  %age Used
+FLASH:                128512 B       512 KB      24.51%
+RAM:                   38272 B       128 KB      29.20%
+[100%] Built target firmware
+Build succeeded.

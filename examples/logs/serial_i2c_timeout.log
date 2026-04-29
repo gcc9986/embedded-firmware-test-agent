@@ -1,0 +1,7 @@
+[00:00.001] boot: board=dev-board-a fw=1.8.2 commit=mock-commit
+[00:00.012] rtos: scheduler started
+[00:00.137] imu: init begin addr=0x68 bus=I2C1
+[00:00.302] i2c: I2C1 timeout while reading addr=0x68 reg=0x75 retry=3
+[00:00.310] imu: WHOAMI read failed, ret=-110
+[00:00.311] ASSERT failed: imu_init at src/drivers/imu.c:128
+[00:00.312] test: TEST_DONE status=FAIL case=sensor_bootstrap
