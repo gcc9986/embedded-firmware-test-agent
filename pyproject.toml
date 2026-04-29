@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "embedded-firmware-test-agent"
+version = "0.1.0"
+description = "Multi-agent firmware test and failure localization workflow for embedded teams."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Your Name" }]
+license = { text = "MIT" }
+keywords = ["embedded", "firmware", "agent", "ci", "feishu", "serial", "testing"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+dependencies = []
+
+[project.optional-dependencies]
+server = ["fastapi>=0.110", "uvicorn>=0.27"]
+serial = ["pyserial>=3.5"]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+all = ["fastapi>=0.110", "uvicorn>=0.27", "pyserial>=3.5", "pytest>=8.0", "ruff>=0.5"]
+
+[project.scripts]
+embedded-test-agent = "embedded_test_agent.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["embedded_test_agent*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

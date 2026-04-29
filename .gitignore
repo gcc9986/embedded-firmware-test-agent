@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.pytest_cache/
+.ruff_cache/
+
+# Reports and generated artifacts
+reports/
+artifacts/
+*.log
+!examples/logs/*.log
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
