@@ -1,0 +1,4 @@
+{"signature":"I2C1 timeout","category":"PERIPHERAL_COMMUNICATION","root_cause":"IMU 上电后未等待稳定时间，首次 I2C 访问容易超时。","suggestion":"在 imu_init 前增加 20-50ms 延时，并检查 I2C pull-up 与地址配置。","owner_hint":"驱动/硬件联调"}
+{"signature":"undefined reference to","category":"BUILD_LINK_ERROR","root_cause":"新增源文件未加入 CMakeLists.txt 或 Makefile。","suggestion":"检查构建脚本是否包含新增 .c/.cpp 文件。","owner_hint":"固件构建"}
+{"signature":"HardFault","category":"MEMORY_OR_RTOS","root_cause":"空指针、栈溢出或中断上下文调用阻塞 API。","suggestion":"打开 map 文件、栈水位监控和 fault decoder，定位 PC/LR。","owner_hint":"固件核心逻辑"}
+{"signature":"watchdog reset","category":"RUNTIME_TIMEOUT","root_cause":"任务阻塞、死循环或外设等待无超时保护。","suggestion":"检查最近改动中的 while/polling 循环，并补充超时和错误返回。","owner_hint":"应用/驱动"}
